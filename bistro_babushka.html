@@ -69,22 +69,23 @@
       }
 
       #popup {
-        background-color: #00000099;
+        background-color: white;
         position: fixed;
         top: 0;
         margin-top: 10vw;
         margin-left: 10vw;
         display: none;
+        border-radius: 3vw;
       }
 
       #popup article {
         background-color: white;
-
         border-style: none;
       }
 
       #popup button {
         border-style: none;
+        font-size: 1rem;
       }
     </style>
   </head>
@@ -116,11 +117,10 @@
     </template>
 
     <section id="popup">
-      <button>X</button>
       <article>
+        <button>X Luk vindue</button>
         <figure><img src="" alt="" /></figure>
         <h2></h2>
-        <p class="kortbeskrivelse"></p>
         <p class="langbeskrivelse"></p>
         <p class="oprindelsesregion"></p>
         <p class="pris"></p>
@@ -214,16 +214,13 @@
 
         popup.querySelector("h2").textContent = popUp.navn;
 
-        document.querySelector(".kortbeskrivelse").textContent =
-          popUp.kortbeskrivelse;
-
-        document.querySelector(".langbeskrivelse").textContent =
+        popup.querySelector(".langbeskrivelse").textContent =
           popUp.langbeskrivelse;
 
-        document.querySelector(".oprindelsesregion").textContent =
+        popup.querySelector(".oprindelsesregion").textContent =
           "Oprindelsesregion: " + popUp.oprindelsesregion;
 
-        document.querySelector(".pris").innerHTML =
+        popup.querySelector(".pris").innerHTML =
           "<b>Pris:<b>" + " " + popUp.pris;
 
         console.log(popUp);
