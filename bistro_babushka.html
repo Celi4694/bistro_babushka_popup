@@ -69,19 +69,17 @@
       }
 
       #popup {
-        width: 60%;
-        height: 60%;
         background-color: #00000099;
         position: fixed;
         top: 0;
-        margin-left: 20vw;
-        margin-top: 20vw;
+        margin-top: 10vw;
+        margin-left: 10vw;
         display: none;
       }
 
       #popup article {
         background-color: white;
-        width: 85%;
+
         border-style: none;
       }
 
@@ -118,12 +116,13 @@
     </template>
 
     <section id="popup">
-      <button></button>
+      <button>X</button>
       <article>
         <figure><img src="" alt="" /></figure>
         <h2></h2>
         <p class="kortbeskrivelse"></p>
         <p class="langbeskrivelse"></p>
+        <p class="oprindelsesregion"></p>
         <p class="pris"></p>
       </article>
     </section>
@@ -189,13 +188,9 @@
             klon.querySelector(".pris").innerHTML =
               "<b>Pris:<b>" + " " + enkeltMad.pris;
 
-            // klon.querySelector("article").addEventListener("click", () => {
-            //   location.href = "bistro_babushka_single.html?id=" + enkeltMad._id;
-            // });
-
             klon
               .querySelector("article")
-              .addEventListener("mouseover", () => visPopUp(enkeltMad));
+              .addEventListener("click", () => visPopUp(enkeltMad));
 
             dest.appendChild(klon);
           }
@@ -216,7 +211,20 @@
 
         popup.querySelector("img").src =
           "billeder/" + popUp.billednavn + "-md.jpg";
+
         popup.querySelector("h2").textContent = popUp.navn;
+
+        document.querySelector(".kortbeskrivelse").textContent =
+          popUp.kortbeskrivelse;
+
+        document.querySelector(".langbeskrivelse").textContent =
+          popUp.langbeskrivelse;
+
+        document.querySelector(".oprindelsesregion").textContent =
+          "Oprindelsesregion: " + popUp.oprindelsesregion;
+
+        document.querySelector(".pris").innerHTML =
+          "<b>Pris:<b>" + " " + popUp.pris;
 
         console.log(popUp);
       }
